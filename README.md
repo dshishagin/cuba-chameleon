@@ -24,4 +24,4 @@ of Java SE.
  * Use CUBA REST API
 
 ## Step by Step Guide
-The complete guide and the code snippets you can find on the [wiki pages](https://github.com/aleksey-stukalov/workshop/wiki). 
+The complete guide and the code snippets you can find on the [wiki pages](https://github.com/cuba-platform/workshop/wiki). 
