@@ -1,27 +1,7 @@
-# Step by Step Guide to the Bicycle Workshop Application
+# Bicycle Workshop
 
-This Hands-on-Lab covers basic and most used features of the CUBA Platform, including development approach and runtime features of the platform. It will learn you how to accelerate development of enterprise applications, taking bicycle workshop system as an example. 
+Sample application from [Full-scale CUBA application: Step by Step Guide](https://github.com/cuba-platform/sample-workshop/wiki) tutorial.
 
-## Environment Required
-* [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/download/) with [CUBA plugin](https://plugins.jetbrains.com/plugin/7249?pr=) installed
-* [CUBA Studio](https://www.cuba-platform.com/download) version 6.7+
+The Workshop application is a simple order management system that enables tracking orders made by clients. Each order contains information about client, mechanic, spare parts used and services provided. Clients, mechanics, spare parts and orders can be created, edited and deleted through the system user interface. This sample covers basic and most used features of the CUBA Platform, including development approach and runtime features of the platform.
 
-## Time
- Estimated time to complete this lab is 3 hours.
- The estimation is given for developers,
-who have general (basic) knowledge
-of Java SE.
-
-## You will learn how to
- * Create a project on the CUBA Platform
- * Define a data model and create a database
- * Auto-generate CRUD UI and customise it
- * Apply generic filters
- * Setup role-based and row-based security
- * Audit changes in the database
- * Integrate CUBA Studio with Java IDE
- * Implement business logic
- * Use CUBA REST API
-
-## Step by Step Guide
-The complete guide and the code snippets you can find on the [wiki pages](https://github.com/cuba-platform/workshop/wiki). 
+Based on CUBA Platform 6.9.0
