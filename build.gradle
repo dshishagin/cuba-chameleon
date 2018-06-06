@@ -1,6 +1,6 @@
 
 buildscript {
-    ext.cubaVersion = '6.7.2'
+    ext.cubaVersion = '6.9.0'
     repositories {
         maven {
             url 'https://repo.cuba-platform.com/content/groups/work'
@@ -18,10 +18,10 @@ buildscript {
 
 def globalModule = project(':app-global')
 def coreModule = project(':app-core')
-def guiModule = project(':app-gui')
+
 def webModule = project(':app-web')
 
-def servletApi = 'org.apache.tomcat:tomcat-servlet-api:8.0.26'
+def servletApi = 'javax.servlet:javax.servlet-api:3.1.0'
 
 
 apply(plugin: 'idea')
@@ -48,7 +48,7 @@ dependencies {
 
 def hsql = 'org.hsqldb:hsqldb:2.2.9'
 
-configure([globalModule, coreModule, guiModule, webModule]) {
+configure([globalModule, coreModule, webModule]) {
     apply(plugin: 'java')
     apply(plugin: 'maven')
     apply(plugin: 'idea')
@@ -123,18 +123,6 @@ configure(coreModule) {
     }
 }
 
-configure(guiModule) {
-    dependencies {
-        compile(globalModule)
-
-    }
-
-    task deployConf(type: Copy) {
-        from file('src')
-        include "com/company/workshop/**"
-        into "$cuba.tomcat.dir/conf/app"
-    }
-}
 
 configure(webModule) {
     configurations {
@@ -144,7 +132,7 @@ configure(webModule) {
 
     dependencies {
         provided(servletApi)
-        compile(guiModule)
+        compile(globalModule)
 
     }
 
@@ -179,7 +167,7 @@ configure(webModule) {
 
     task deploy(dependsOn: [assemble, cleanConf], type: CubaDeployment) {
         appName = 'app'
-        appJars('app-global', 'app-gui', 'app-web')
+        appJars('app-global', 'app-web')
     }
 }
 
@@ -202,7 +190,7 @@ task restart(dependsOn: ['stop', ':app-core:deploy', ':app-web:deploy'], descrip
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.4'
+    gradleVersion = '4.3.1'
 }
 
 apply from: 'extra.gradle'
