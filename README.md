@@ -6,7 +6,7 @@ The Workshop application is a simple order management system that enables tracki
 
 This sample covers basic and most used features of the CUBA Platform, including development approach and runtime features of the platform.
 
-Based on CUBA Platform 6.9.0
+Based on CUBA Platform 6.10.1
 
 ## Issues
 Please use https://www.cuba-platform.com/discuss for discussion, support, and reporting problems coressponding to this sample.
