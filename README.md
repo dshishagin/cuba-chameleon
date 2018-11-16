@@ -7,7 +7,8 @@ Although CUBA-based applications works just fine with Chameleon, there are coupl
 
 1. How to include custom [Chameleon JS-snippet](https://www.trychameleon.com/setup/go-live) that is used by Chameleon 
 tool on production to **every** page of the CUBA app.
-1. How to pass custom fields like user ID, user role and some others to help Chameleon to 
+1. How to [pass custom fields to Chameleon](https://www.youtube.com/watch?v=2GZueVdBPGw&list=PLu0g_GBxlYcmVU1fRJ7HPmDzBKDJAUFep&index=5)
+like user ID, user role and some others to help Chameleon to 
 [target users](https://www.youtube.com/watch?v=poYJ2Rq57dI&index=4&list=PLu0g_GBxlYcmVU1fRJ7HPmDzBKDJAUFep).
 1. How to make Chameleon 
 [selecting the right element](https://www.youtube.com/watch?v=KI26PLlEsr4&list=PLu0g_GBxlYcmVU1fRJ7HPmDzBKDJAUFep&index=3) 

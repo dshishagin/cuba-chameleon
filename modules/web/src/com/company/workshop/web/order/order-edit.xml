@@ -13,18 +13,27 @@
                                   property="parts"/>
         </datasource>
     </dsContext>
-    <layout expand="windowActions"
+    <actions>
+        <action id="saveOrder" caption="msg://saveOrder.caption" icon="DIALOG_OK" invoke="saveOrder"/>
+        <action id="cancelOrder" caption="msg://cancelOrder.caption" icon="CANCEL" invoke="cancelOrder"/>
+    </actions>
+    <dialogMode forceDialog="true"
+                height="AUTO"
+                width="80%"/>
+    <layout expand="buttonsPanel"
             spacing="true">
         <fieldGroup id="fieldGroup"
-                    datasource="orderDs">
-            <column width="250px">
-                <field id="client"/>
-                <field id="mechanic"/>
+                    datasource="orderDs" width="100%">
+            <column width="40%">
+                <field id="client" width="90%"/>
+                <field id="mechanic" width="90%"/>
                 <field id="description"
-                       rows="5"/>
-                <field id="hoursSpent"/>
-                <field id="amount"/>
-                <field id="status"/>
+                       rows="5" width="90%"/>
+            </column>
+            <column width="40%">
+                <field id="hoursSpent" width="90%"/>
+                <field id="amount"  width="90%"/>
+                <field id="status"  width="90%"/>
             </column>
         </fieldGroup>
         <groupBox id="partsBox"
@@ -47,7 +56,12 @@
                 </buttonsPanel>
             </table>
         </groupBox>
-        <frame id="windowActions"
-               screen="editWindowActions"/>
+        <buttonsPanel id="buttonsPanel">
+            <!-- button "saveOrder" will be rendered to:
+            <div role="button" class="v-button v-widget chameleon-order-save v-button-chameleon-order-save icon v-button-icon">...</div>
+            -->
+            <button action="saveOrder" stylename="chameleon-order-save"/>
+            <button action="cancelOrder" stylename="chameleon-order-cancel"/>
+        </buttonsPanel>
     </layout>
 </window>

@@ -10,11 +10,12 @@
                     class="com.company.workshop.entity.Mechanic"
                     view="mechanic-view"/>
     </dsContext>
+    <dialogMode forceDialog="true" width="AUTO"/>
     <layout expand="windowActions"
             spacing="true">
         <fieldGroup id="fieldGroup"
                     datasource="mechanicDs">
-            <column width="250px">
+            <column width="100%">
                 <field id="user"/>
                 <field id="hourlyRate"/>
             </column>

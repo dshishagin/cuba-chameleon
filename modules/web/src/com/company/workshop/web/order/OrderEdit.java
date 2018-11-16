@@ -23,4 +23,12 @@ public class OrderEdit extends AbstractEditor<Order> {
         getItem().setAmount(orderService.calculateOrderAmount(getItem()));
         return super.preCommit();
     }
+
+    public void saveOrder() {
+        commitAndClose();
+    }
+
+    public void cancelOrder() {
+        close(WINDOW_CLOSE, false);
+    }
 }

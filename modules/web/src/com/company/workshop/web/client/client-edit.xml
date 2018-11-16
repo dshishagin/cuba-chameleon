@@ -10,11 +10,13 @@
                     class="com.company.workshop.entity.Client"
                     view="_local"/>
     </dsContext>
+    <dialogMode forceDialog="true"/>
     <layout expand="windowActions"
             spacing="true">
         <fieldGroup id="fieldGroup"
-                    datasource="clientDs">
-            <column width="250px">
+                    datasource="clientDs"
+                    width="100%">
+            <column width="100%">
                 <field id="name"/>
                 <field id="phoneNumber"/>
                 <field id="email"/>
