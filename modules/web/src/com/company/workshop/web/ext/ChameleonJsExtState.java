@@ -6,4 +6,6 @@ public class ChameleonJsExtState extends JavaScriptExtensionState {
 
     public String userId = "";
     public String userEmail = "";
+    public String userName = "";
+    public String userRole = "";
 }

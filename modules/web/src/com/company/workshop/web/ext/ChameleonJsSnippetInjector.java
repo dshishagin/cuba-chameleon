@@ -8,8 +8,10 @@ import com.vaadin.server.AbstractJavaScriptExtension;
 @JavaScript("vaadin://chameleon-init.js")
 public class ChameleonJsSnippetInjector extends AbstractJavaScriptExtension {
 
-    public ChameleonJsSnippetInjector(AbstractClientConnector target) {
-        super(target);
+    @Override
+    public void extend(AbstractClientConnector target) {
+        super.extend(target);
+        callFunction("init", getState().userId, getState().userEmail, getState().userName, getState().userRole);
     }
 
     @Override
@@ -28,5 +30,13 @@ public class ChameleonJsSnippetInjector extends AbstractJavaScriptExtension {
 
     public void setUserEmail(String email) {
         getState().userEmail = email;
+    }
+
+    public void setUserName(String name) {
+        getState().userName = name;
+    }
+
+    public void setUserRole(String role) {
+        getState().userRole = role;
     }
 }
