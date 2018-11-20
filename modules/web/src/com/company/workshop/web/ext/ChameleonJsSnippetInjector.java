@@ -1,7 +1,6 @@
 package com.company.workshop.web.ext;
 
 import com.vaadin.server.AbstractClientConnector;
-import com.vaadin.ui.Window;
 import com.vaadin.annotations.JavaScript;
 import com.vaadin.server.AbstractJavaScriptExtension;
 
