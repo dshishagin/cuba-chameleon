@@ -59,7 +59,7 @@ ID to your own one.
 
 The method this app uses for loading chameleon's JS is based on adding custom JS script component to the main window of the CUBA application.
 If your application doesn't have a custom main window, you can take a look at this [documantation pages](https://doc.cuba-platform.com/manual-latest/main_window_layout.html) 
-or this [forum thread](https://www.cuba-platform.com/discuss/t/appwindow-customization/357/5). The task of creating a custom Main Window
+or this [forum thread](https://www.cuba-platform.com/discuss/t/how-to-customize-front-web-app-screen/601). The task of creating a custom Main Window
 (if your app doesn't have such yet) task can be easily done from CUBA studio using **Generic UI -> New -> Main Window** tool.
 
 Nevertheless, following these tutorials [1: avascript NON-visual Component](https://www.cuba-platform.com/discuss/t/javascript-non-visual-component/3594/6) 
@@ -88,7 +88,73 @@ file. In this case, CUBA will start adding `cuba-id` attributes to each UI compo
 
 ### Manual method
 
-## Bicycle Workshop
+The idea of this method is to adding a dummy css classes to HTML representations of CUBA components, which can be achieved either by
+using `stylename` attribute in screen's XML:
+
+```xml
+<buttonsPanel id="buttonsPanel">
+    <!-- button "saveOrder" will be rendered to:
+    <div role="button" class="v-button v-widget chameleon-order-save v-button-chameleon-order-save icon v-button-icon">...</div>
+    -->
+    <button action="saveOrder" stylename="chameleon-order-save"/>
+    <button action="cancelOrder" stylename="chameleon-order-cancel"/>
+</buttonsPanel>
+```
+
+[order-edit.xml](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/src/com/company/workshop/web/order/order-edit.xml)
+
+Or can be done in screen controllers.
+
+For individual components:
+```java
+public class ExtAbstractFrame extends AbstractFrame {
+    @Inject
+    private Button windowCommit;
+    @Inject
+    private Button windowClose;
+
+    @Override
+    public void init(Map<String, Object> params) {
+        super.init(params);
+        windowCommit.addStyleName("chameleon-button-commit");
+        windowClose.addStyleName("chameleon-button-close");
+    }
+}
+```
+
+[ExtAbstractFrame.java](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/src/com/company/workshop/web/frames/ExtAbstractFrame.java)
+
+Please, note that here we have redefined our standard CUBA `editWindowActions` frame. (See [this page](https://www.cuba-platform.com/discuss/t/edit-extended-windows-button/510/2) for details).
+
+Another approach would be beter suitable to tables and other composite components, it uses `addStyleProvider` call and looks like thos:
+
+
+```java
+public class ClientBrowse extends AbstractLookup {
+    @Inject
+    private Table<Client> clientsTable;
+
+    @Override
+    public void init(Map<String, Object> params) {
+        super.init(params);
+
+        clientsTable.addStyleProvider((client, property) -> {
+            if (property == null && client!=null) {
+                // set style for the whole row
+                // row would be rendered as (for example)
+                // <tr class="v-table-row-cs cs chameleon-client-row-8fa55caa-59de-cd89-1252-252b73360ff4 v-table-row-odd" style="">...</tr>
+                return "chameleon-client-row-" + client.getId();
+            } else {
+                return null;
+            }
+        });
+    }
+}
+``` 
+
+[ClientBrowse.java](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/src/com/company/workshop/web/client/ClientBrowse.java)
+
+# Bicycle Workshop
 
 Sample application from [Full-scale CUBA application: Step by Step Guide](https://github.com/cuba-platform/sample-workshop/wiki) tutorial.
 
