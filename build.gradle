@@ -131,13 +131,11 @@ configure(coreModule) {
 configure(webModule) {
     configurations {
         webcontent
-        
     }
 
     dependencies {
         provided(servletApi)
         compile(globalModule)
-
     }
 
     task webArchive(type: Zip) {
