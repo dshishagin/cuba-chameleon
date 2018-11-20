@@ -19,4 +19,6 @@
             template="com/company/workshop/web/order/order-edit.xml"/>
     <screen id="editWindowActions"
             template="com/company/workshop/web/frames/ext-edit-window.actions.xml"/>
+    <screen id="mainWindow"
+            template="com/company/workshop/web/screens/ext-mainwindow.xml"/>
 </screen-config>
