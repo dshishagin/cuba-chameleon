@@ -6,6 +6,8 @@
        xmlns:context="http://www.springframework.org/schema/context">
     <!-- Annotation-based beans -->
     <context:component-scan base-package="com.company.workshop"/>
+    <bean id="cuba_BootstrapListener"
+          class="com.company.workshop.web.bootstrap.BootstrapListener"/>
     <bean class="com.haulmont.cuba.web.sys.remoting.WebRemoteProxyBeanCreator">
         <property name="serverSelector"
                   ref="cuba_ServerSelector"/>
