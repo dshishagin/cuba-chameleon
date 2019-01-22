@@ -62,7 +62,7 @@ If your application doesn't have a custom main window, you can take a look at th
 or this [forum thread](https://www.cuba-platform.com/discuss/t/how-to-customize-front-web-app-screen/601). The task of creating a custom Main Window
 (if your app doesn't have such yet) task can be easily done from CUBA studio using **Generic UI -> New -> Main Window** tool.
 
-Nevertheless, following these tutorials [1: avascript NON-visual Component](https://www.cuba-platform.com/discuss/t/javascript-non-visual-component/3594/6) 
+Nevertheless, following these tutorials [1: Javascript NON-visual Component](https://www.cuba-platform.com/discuss/t/javascript-non-visual-component/3594/6) 
 [2: Fullscreen tabs](https://www.cuba-platform.com/discuss/t/fullscreen-tabs/3079/3) and 
 [3: Integrating JavaScript Components and Extensions](https://vaadin.com/docs/v8/framework/gwt/gwt-javascript.html), let's take a look at the next files:
 
@@ -73,7 +73,7 @@ _(see [Using Configuration Interfaces](https://doc.cuba-platform.com/manual-late
 ChameleonJsSnippetInjector defines our custom JavaScript extension component and gives us couple set methods to pass data to the script.
 3. [ChameleonJsExtState.java](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/src/com/company/workshop/web/ext/ChameleonJsExtState.java) - 
 simple POJO to carry data to the client side through Vaadin's mechanisms.
-4. [hameleon-init.js](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/web/VAADIN/chameleon-init.js) - the Javascript we loads to the page.
+4. [chameleon-init.js](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/web/VAADIN/chameleon-init.js) - the Javascript we loads to the page.
 It is somewhat tricky. Since we need to pass some dynamic data from out Java code (like user ID, email etc) and they are coming to the `init` 
 function of this script, we have no choice, but to build the required chameleon's script dynamically and add it to `<head>` section
 using `appendChild` method.
@@ -126,7 +126,7 @@ public class ExtAbstractFrame extends AbstractFrame {
 
 Please, note that here we have redefined our standard CUBA `editWindowActions` frame. (See [this page](https://www.cuba-platform.com/discuss/t/edit-extended-windows-button/510/2) for details).
 
-Another approach would be beter suitable to tables and other composite components, it uses `addStyleProvider` call and looks like thos:
+Another approach would be better suitable to tables and other composite components, it uses `addStyleProvider` call and looks like this:
 
 
 ```java
