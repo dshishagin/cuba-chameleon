@@ -7,12 +7,16 @@ import com.haulmont.cuba.security.global.UserSession;
 import com.haulmont.cuba.web.app.mainwindow.AppMainWindow;
 import com.vaadin.server.AbstractClientConnector;
 import com.vaadin.ui.Window;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.inject.Inject;
 import java.util.Map;
 import java.util.stream.Collectors;
 
 public class ExtAppMainWindow extends AppMainWindow {
+
+    protected Logger log = LoggerFactory.getLogger(ExtAppMainWindow.class);
 
     @Inject
     private UserSession userSession;
@@ -23,7 +27,10 @@ public class ExtAppMainWindow extends AppMainWindow {
     public void init(Map<String, Object> params) {
         super.init(params);
 
+        log.debug("Pre-INIT Chameleon");
+
         if (chameleonConfig.isChameleonEnabled()) {
+            log.debug("INIT Chameleon");
 
             AbstractClientConnector vMainWindow = this.unwrapComposition(Window.class);
             ChameleonJsSnippetInjector injector = new ChameleonJsSnippetInjector();
@@ -37,6 +44,8 @@ public class ExtAppMainWindow extends AppMainWindow {
             }
 
             injector.extend(vMainWindow);
+
+            log.debug("Post INIT Chameleon");
         }
     }
 }
