@@ -69,11 +69,12 @@ Nevertheless, following these tutorials [1: Javascript NON-visual Component](htt
 1. [ExtAppMainWindow.java](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/src/com/company/workshop/web/screens/ExtAppMainWindow.java) - 
 this class injects our custom Javascript component into the apps' top-level window and do it only if this option is enabled through configuration 
 _(see [Using Configuration Interfaces](https://doc.cuba-platform.com/manual-latest/config_interface_usage.html) page for details)_.
-2. [ChameleonJsSnippetInjector.java](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/src/com/company/workshop/web/ext/ChameleonJsSnippetInjector.java) - 
+1. [ChameleonJsSnippetInjector.java](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/src/com/company/workshop/web/ext/ChameleonJsSnippetInjector.java) - 
 ChameleonJsSnippetInjector defines our custom JavaScript extension component and gives us couple set methods to pass data to the script.
-3. [ChameleonJsExtState.java](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/src/com/company/workshop/web/ext/ChameleonJsExtState.java) - 
+1. [ext-mainwindow.xml](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/src/com/company/workshop/web/screens/ext-mainwindow.xml) - a window xml descriptor
+1. [ChameleonJsExtState.java](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/src/com/company/workshop/web/ext/ChameleonJsExtState.java) - 
 simple POJO to carry data to the client side through Vaadin's mechanisms.
-4. [chameleon-init.js](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/web/VAADIN/chameleon-init.js) - the Javascript we loads to the page.
+1. [chameleon-init.js](https://github.com/dyakonoff/cuba-chameleon/blob/master/modules/web/web/VAADIN/chameleon-init.js) - the Javascript we loads to the page.
 It is somewhat tricky. Since we need to pass some dynamic data from out Java code (like user ID, email etc) and they are coming to the `init` 
 function of this script, we have no choice, but to build the required chameleon's script dynamically and add it to `<head>` section
 using `appendChild` method.

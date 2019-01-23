@@ -27,10 +27,10 @@ public class ExtAppMainWindow extends AppMainWindow {
     public void init(Map<String, Object> params) {
         super.init(params);
 
-        log.debug("Pre-INIT Chameleon");
+        log.debug("Pre-INIT Chameleon in ExtAppMainWindow");
 
         if (chameleonConfig.isChameleonEnabled()) {
-            log.debug("INIT Chameleon");
+            log.debug("INIT Chameleon in ExtAppMainWindow");
 
             AbstractClientConnector vMainWindow = this.unwrapComposition(Window.class);
             ChameleonJsSnippetInjector injector = new ChameleonJsSnippetInjector();
@@ -45,7 +45,7 @@ public class ExtAppMainWindow extends AppMainWindow {
 
             injector.extend(vMainWindow);
 
-            log.debug("Post INIT Chameleon");
+            log.debug("Post INIT Chameleon in ExtAppMainWindow");
         }
     }
 }
