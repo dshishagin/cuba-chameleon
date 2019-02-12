@@ -10,3 +10,7 @@ out
 test-run
 deploy/tomcat
 deploy/*
+.idea/
+gradle/
+gradlew
+gradlew.bat

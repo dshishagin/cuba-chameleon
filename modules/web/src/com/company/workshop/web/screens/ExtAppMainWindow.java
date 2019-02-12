@@ -35,8 +35,16 @@ public class ExtAppMainWindow extends AppMainWindow {
             AbstractClientConnector vMainWindow = this.unwrapComposition(Window.class);
             ChameleonJsSnippetInjector injector = new ChameleonJsSnippetInjector();
 
+            if (vMainWindow != null) {
+                log.debug("Chameleon: vMainWindow is NOT NULL");
+            }
+
+            if (injector != null) {
+                log.debug("Chameleon: injector is NOT NULL");
+            }
             User user = userSession.getCurrentOrSubstitutedUser();
             if (user != null) {
+                log.debug("UserID = " + user.getId().toString());
                 injector.setUserId(user.getId().toString());
                 injector.setUserEmail(user.getEmail());
                 injector.setUserName(user.getName());
