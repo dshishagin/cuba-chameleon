@@ -1,6 +1,7 @@
 rootProject.name = 'workshop'
-include(':app-global', ':app-core', ':app-web')
-project(':app-global').projectDir = new File(settingsDir, 'modules/global')
-project(':app-core').projectDir = new File(settingsDir, 'modules/core')
+def modulePrefix = 'app'
+include(":${modulePrefix}-global" , ":${modulePrefix}-core" , ":${modulePrefix}-web" )
+project(":${modulePrefix}-global" ).projectDir = new File(settingsDir, 'modules/global')
+project(":${modulePrefix}-core" ).projectDir = new File(settingsDir, 'modules/core')
 
-project(':app-web').projectDir = new File(settingsDir, 'modules/web')
+project(":${modulePrefix}-web" ).projectDir = new File(settingsDir, 'modules/web')
